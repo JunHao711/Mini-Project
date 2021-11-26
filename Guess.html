@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <title>Number Guessing Game</title>
+        <style>
+            .aaa{
+                padding: 50px 50px 50px 50px;
+                background:rgb(132, 0, 255);
+                border: 1px;
+                border-radius: 20px 20px 20px 20px;
+                width:1000px;
+                color: white;
+                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                margin: auto;
+                text-align: left;
+            }
+        </style>
+    </head>
+    <Body style="background-color: skyblue;">
+        
+            <div class="aaa">
+                <h1>Guess a number between 1 - 100</h1>
+                Guess Number : <input type="number" id="guess">
+                <button onclick="Game()">Submit</button>
+                <h3>Result :<p id="Resultt"></p><p id="w1"></p></h3>
+            </div>
+    </Body>
+    <script>
+        function Game(){
+            var answer = 26;
+            var min=1;
+            var max=100;
+            var qwe =document.getElementById("w1");
+            var Result =document.getElementById("Resultt");
+            var Myguess=document.getElementById("guess").value;
+                do{
+                    if(Myguess>0 && Myguess<answer && Myguess<=100){
+                        min=Myguess
+                        qwe.innerHTML= "Please guess between "+min+" - "+max;
+                        Result.innerHTML= "Guess was too low!";
+                    }else if (Myguess == answer){
+                        Result.innerHTML="Bingo!!!";
+
+                    }else if(Myguess>answer&& Myguess<=100){
+                        max=Myguess;
+                        qwe.innerHTML="Guess a number between "+min+" - "+max;
+                        Result.innerHTML= "Guess was too high!";
+
+                    }else if(Myguess>100){
+                        Result.innerHTML="Invalid :Please guess between 1 -100 ";
+                    }else if(Myguess<=0){
+                        Result.innerHTML="Invalid :Please guess between 1 -100 ";
+                    }                   
+                }while(Result<0);
+            }
+    </script>
+</html>
